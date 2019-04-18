@@ -23,7 +23,6 @@
 </head>
 <body>
 	
-	
 	<div class="bg-g1 size1 flex-w flex-col-c-sb p-l-15 p-r-15 p-t-55 p-b-35 respon1">
 		<span></span>
 		<div class="flex-col-c p-t-80 p-b-50">
@@ -41,22 +40,22 @@
 
 			<div class="flex-w flex-c cd100 p-b-82">
 				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt3 p-b-9 days"></span>
+					<span id="days" class="l1-txt3 p-b-9"></span>
 					<span class="s1-txt1">Days</span>
 				</div>
 
 				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt3 p-b-9 hours"></span>
+					<span id="hours" class="l1-txt3 p-b-9"></span>
 					<span class="s1-txt1">Hours</span>
 				</div>
 
 				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt3 p-b-9 minutes"></span>
+					<span id="minutes" class="l1-txt3 p-b-9"></span>
 					<span class="s1-txt1">Minutes</span>
 				</div>
 
 				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt3 p-b-9 seconds"></span>
+					<span id="seconds" class="l1-txt3 p-b-9"></span>
 					<span class="s1-txt1">Seconds</span>
 				</div>
 			</div>
@@ -70,53 +69,36 @@
 
 
 <!--===============================================================================================-->	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/moment.min.js"></script>
-	<script src="vendor/countdowntime/moment-timezone.min.js"></script>
-	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<script>
 		//Setting Final Date
 		var countDownDate = new Date("Jan 5, 2020 00:00:00").getTime();
 
-		//Getting Current Date
-		var now = new Date().getTime();
+		var x = setInterval(function () {
+			//Getting Current Date
+			var now = new Date().getTime();
 
-		//Find Distance between Dates
-		var distance = countDownDate - now;
+			//Find Distance between Dates
+			var distance = countDownDate - now;
 
-		//Time Calculations for Days, Hours, Minutes, and Seconds
-		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			//Time Calculations for Days, Hours, Minutes, and Seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-		//Countdown Function
-		$('.cd100').countdown100({
-			endtimeYear: 0,
-			endtimeMonth: 0,
-			endtimeDate: days,
-			endtimeHours: hours,
-			endtimeMinutes: minutes,
-			endtimeSeconds: seconds,
-			timeZone: "Asia/Jakarta" 
-		});
+			//Output to Span
+			document.getElementById("days").innerHTML = days;
+			document.getElementById("hours").innerHTML = hours;
+			document.getElementById("minutes").innerHTML = minutes;
+			document.getElementById("seconds").innerHTML = seconds;
+
+		}, 1000);
 	</script>
-<!--===============================================================================================-->
-	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
 
 </body>
 </html>
