@@ -16,7 +16,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = THREE.PCFShadowMap;
 container.appendChild(renderer.domElement);
 
 // --- Colors (Donald Duck Palette) ---
@@ -284,12 +284,16 @@ const friction = 0.90;
 let targetYaw = 0;
 
 // --- Animation Loop ---
-const clock = new THREE.Clock();
+let previousTime = performance.now();
+let elapsedTime = 0;
 
 function animate() {
     requestAnimationFrame(animate);
-    const elapsedTime = clock.getElapsedTime();
-    const delta = clock.getDelta();
+    
+    const currentTime = performance.now();
+    const delta = (currentTime - previousTime) / 1000;
+    previousTime = currentTime;
+    elapsedTime += delta;
 
     // Handle Input (Absolute Direction)
     let dx = 0;
