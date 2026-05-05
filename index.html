@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlie's Portfolio</title>
+    <link rel="icon" href='data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="%23FFCC00"/><path d="M30 60 Q 50 80 70 60" stroke="%23E32636" stroke-width="8" stroke-linecap="round"/><circle cx="35" cy="40" r="6" fill="%230A1128"/><circle cx="65" cy="40" r="6" fill="%230A1128"/></svg>' type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Subtle Paper Texture Overlay -->
+    <div class="paper-texture"></div>
+
+    <nav class="site-nav">
+        <div class="nav-brand">
+            <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="var(--dd-yellow)"/>
+                <path d="M30 60 Q 50 80 70 60" stroke="var(--dd-red)" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="35" cy="40" r="6" fill="var(--dd-navy)"/>
+                <circle cx="65" cy="40" r="6" fill="var(--dd-navy)"/>
+            </svg>
+            <span>Charlie [L] Oroh</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#work">Projects</a></li>
+            <li><a href="#contact">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="badge">SOFTWARE ENGINEER</div>
+                    <h1 class="display-title">Code.<br>Create.<br>Quack.</h1>
+                    <p class="hero-description">
+                        I craft elegant, production-grade interfaces and scalable systems. 
+                        Turning complex problems into robust software solutions one line of code at a time.
+                    </p>
+                    <a href="#work" class="btn-primary">View Projects</a>
+                </div>
+                <div class="hero-visual">
+                    <!-- The 3D Scene will be injected here -->
+                    <div id="webgl-container" class="canvas-frame"></div>
+                    
+                    <!-- Score Display -->
+                    <div class="score-display">
+                        <span class="score-label">COINS</span>
+                        <span id="score-value">0</span>
+                    </div>
+
+                    <!-- Keyboard Hint Overlay -->
+                    <div class="wasd-hint" id="wasd-hint">
+                        <div class="keys">
+                            <div class="key-row"><kbd>W</kbd></div>
+                            <div class="key-row"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div>
+                        </div>
+                        <span>USE KEYBOARD TO EXPLORE</span>
+                    </div>
+
+                    <!-- Mobile Controls Overlay -->
+                    <div class="mobile-controls" id="mobile-controls">
+                        <button class="dpad-btn up" id="btn-up">▲</button>
+                        <div class="dpad-row">
+                            <button class="dpad-btn left" id="btn-left">◀</button>
+                            <button class="dpad-btn down" id="btn-down">▼</button>
+                            <button class="dpad-btn right" id="btn-right">▶</button>
+                        </div>
+                    </div>
+
+                    <div class="visual-accent-1"></div>
+                    <div class="visual-accent-2"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-placeholder" id="about-visual-container">
+                        <!-- Interactive Layers -->
+                        <div class="layer-character">
+                            <img src="images/engineer.jpeg" alt="Character">
+                        </div>
+                        <div class="layer-code">
+                            <img src="images/code.jpeg" alt="Code Snippet">
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-title">The Engineer<br><span id="position-toggle" class="interactive-word" title="Click to toggle!">Behind</span> The Code</h2>
+                        <div class="nameplate">
+                            <span class="nameplate-text">CHARLIE</span>
+                        </div>
+                        <p class="body-large">
+                            Driven by a passion for clean code and continuous improvement, I specialize in building reliable and scalable web applications.
+                        </p>
+                        <p>
+                            Blending modern technologies with creative freedom, I build web applications while continuously learning and improving.
+                        </p>
+                        <ul class="skills-list">
+                            <li>Java Spring Boot</li>
+                            <li>Vue</li>
+                            <li>Performance & Scalable</li>
+                            <li>Responsive & Accessible Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-skills">
+            <div class="container">
+                <div class="skills-header">
+                    <h2 class="section-title">Tech<br>Skills</h2>
+                    <p>The tools and technologies I use to build digital experiences.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category bg-blue">
+                        <h3>Frontend</h3>
+                        <div class="skill-tags">
+                            <span>Vue</span>
+                            <span>Electron.js</span>
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>Tailwind CSS</span>
+                            <span>HTML5/CSS3</span>
+                        </div>
+                    </div>
+                    <div class="skill-category bg-red">
+                        <h3>Backend</h3>
+                        <div class="skill-tags">
+                            <span>Java Spring Boot</span>
+                            <span>Python</span>
+                            <span>PostgreSQL</span>
+                            <span>MongoDB</span>
+                            <span>Redis</span>
+                            <span>Apache Kafka</span>
+                            <span>Apache Freemarker</span>
+                        </div>
+                    </div>
+                    <div class="skill-category bg-yellow">
+                        <h3>Tools & DevOps</h3>
+                        <div class="skill-tags">
+                            <span>Cursor</span>
+                            <span>Git</span>
+                            <span>Docker</span>
+                            <span>GCP</span>
+                            <span>CI/CD</span>
+                            <span>Figma</span>
+                            <span>Wordpress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="section-work">
+            <div class="container">
+                <div class="work-header">
+                    <h2 class="section-title">Recent<br>Projects</h2>
+                    <p>A collection of my recent technical achievements.</p>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="card-visual bg-blue">
+                            <span class="card-number">01</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Daily Tools</h3>
+                            <p>Developed an Electron desktop application to help my daily works.</p>
+                            <div class="tags">
+                                <span>Personal Project</span>
+                                <span>Electron</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="card-visual bg-red">
+                            <span class="card-number">02</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>The Cobbs</h3>
+                            <p>Developed a Vue web application integrated with WordPress REST API to display restaurant information.</p>
+                            <div class="tags">
+                                <span>Paid Project</span>
+                                <span>Vue</span>
+                                <span>WordPress API</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="card-visual bg-yellow">
+                            <span class="card-number">03</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Centra Steel</h3>
+                            <p>Developed a Vue web application integrated with WordPress REST API to display material company profile.</p>
+                            <div class="tags">
+                                <span>Paid Project</span>
+                                <span>Vue</span>
+                                <span>WordPress API</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-contact">
+            <div class="container">
+                <div class="contact-box">
+                    <div class="contact-text">
+                        <h2 class="display-title text-white">Let's<br>Connect.</h2>
+                        <p class="text-white">My inbox is always open. Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!</p>
+                    </div>
+                    <div class="contact-links">
+                        <a href="mailto:charlieoroh.dev@gmail.com" class="contact-card">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">charlieoroh.dev@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/charlieclo" class="contact-card">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">@charlieclo</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/charlie-leonardo-oroh" class="contact-card">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">/in/charlie-leonardo-oroh</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Charlie L. Oroh - Software Engineer. No ducks were harmed while browsing this website.</p>
+    </footer>
+
+    <!-- Go To Top Button -->
+    <button id="goTopBtn" class="go-top-btn" aria-label="Go to top">▲</button>
+
+    <!-- Import Three.js -->
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
