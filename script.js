@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 // --- Scene Setup ---
 const container = document.getElementById('webgl-container');
 const scene = new THREE.Scene();
